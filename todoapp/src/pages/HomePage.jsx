@@ -7,14 +7,20 @@ export const MyContext = createContext();
 function HomePage() {
   const [todos, setTodos] = useState([]);
   const [value, setValue] = useState('');
+  const [idCounter, setIdCounter] = useState(1); // İlk id değeri 1 olarak başlasın
 
   const handleValue = () => {
-   setTodos([...todos, value])
-   setValue('')
-  }
+    if (value.trim() !== '') {
+      const newTodo = {
+        id: idCounter, // id değeri idCounter ile atanır
+        text: value,
+      };
 
-  console.log(value)
-  console.log(todos)
+      setTodos([...todos, newTodo]);
+      setValue('');
+      setIdCounter(idCounter + 1); // idCounter'ı bir artırarak bir sonraki id'yi hazırla
+    }
+  };
 
   return (
     <div className='headerDiv'>
@@ -31,8 +37,8 @@ function HomePage() {
         </div>
       </div>
       <div className='mainTodo'>
-        <MyContext.Provider value={{ todos, setTodos }}>
-          <Todo className='todoList' />
+        <MyContext.Provider value={{ todos, setTodos, idCounter }}>
+          <Todo />
         </MyContext.Provider>
       </div>
     </div>

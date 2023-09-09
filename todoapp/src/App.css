@@ -37,6 +37,7 @@
   width:100vh;
   padding: 20px;
   border: 2px solid #ccc;
+  border-radius: 20px;
 
 }
 
@@ -63,4 +64,9 @@
   justify-content: center;
   cursor: pointer;
   background-color: transparent;
+}
+
+.title{
+  text-align: center;
+  margin: 5px;
 }

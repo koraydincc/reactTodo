@@ -1,25 +1,45 @@
-import React, { useContext } from 'react'
-import {MyContext} from '../pages/HomePage'
+import React, { useContext, useState } from 'react';
+import { MyContext } from '../pages/HomePage';
 
 function Todo() {
+  const { todos, setTodos, idCounter, setIdCounter } = useContext(MyContext);
+  const [newTodo, setNewTodo] = useState('');
 
-  const {todos, setTodos} = useContext(MyContext)
+  const handleAddTodo = () => {
+    if (newTodo.trim() !== '') {
+      const newTodoItem = {
+        id: idCounter, 
+        text: newTodo,
+      };
+
+      setTodos([...todos, newTodoItem]);
+      setNewTodo('');
+
+      // idCounter'ı bir sonraki id için artır
+      setIdCounter(idCounter + 1);
+    }
+  };
+
+  const handleDelete = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
 
   return (
-    <div className='todoList'>
-      <div>
-        {todos.map((todo,index)=>{
-          return (
-            <li className='todo' key={index}>
-               {todo}
-               <button>Düzenle</button>
-               <button>Sil</button>
-            </li>
-          )
-        })}
-      </div>
+    <div>
+      <h2 className='title'>Todo List</h2>
+      <ul>
+        {todos.map((todo) => (
+          <li className='todo' key={todo.id}>
+            {todo.text}
+            <button>Düzenle</button>
+            <button onClick={() => handleDelete(todo.id)}>Sil</button>
+          </li>
+        ))}
+      </ul>
+    
     </div>
-  )
+  );
 }
 
-export default Todo
+export default Todo;
