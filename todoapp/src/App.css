@@ -24,6 +24,22 @@
   justify-content: center;
 }
 
+.todoList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  
+}
+
+.todo{
+  width:100vh;
+  padding: 20px;
+  border: 2px solid #ccc;
+
+}
+
 .headerTodo input {
   padding: 8px;
   border: 1px solid #ccc;
