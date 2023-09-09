@@ -37,7 +37,7 @@ function HomePage() {
         </div>
       </div>
       <div className='mainTodo'>
-        <MyContext.Provider value={{ todos, setTodos, idCounter }}>
+        <MyContext.Provider value={{ todos, setTodos,idCounter }}>
           <Todo />
         </MyContext.Provider>
       </div>
