@@ -1,8 +1,9 @@
 *{
   margin: 0;
   padding: 0;
-  
+
 }
+
 
 
 .headerDiv {
@@ -11,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh; 
+  
 }
 
 .headerTodo {
@@ -22,26 +24,67 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+ 
 }
 
-.todoList{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+
+
+/* Todo başlık */
+.title {
   text-align: center;
-  margin: 10px;
-  
+  margin: 10px 0;
 }
 
-.todo{
-  width:100vh;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 20px;
-  margin: 5px;
+
+
+
+/* Todo öğeleri */
+.todo-content {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  justify-content: space-between; /* İçerik ve düğmeleri yatayda aralayın */
+  align-items: center; /* İçerik ve düğmeleri dikeyde hizalayın */
+  width: 100%;
+  margin-bottom: 10px; /* Öğeler arası boşluk */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 500px;
+}
+
+/* Todo öğe içeriği */
+.todo-text {
+  flex-grow: 1;
+  display: flex;
   
 
 }
+
+/* Düzenle düğmesi */
+.todo-actions button:first-child {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 2px;
+}
+
+/* Sil düğmesi */
+.todo-actions button:last-child {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
 
 .headerTodo input {
   padding: 8px;
@@ -49,6 +92,7 @@
   border-radius: 4px;
   width: 400px;
   background: transparent;
+  
 }
 
 .headerTodo input:focus{
@@ -71,4 +115,10 @@
 .title{
   text-align: center;
   margin: 5px;
+}
+
+.selectBox{
+  width: 150px;
+  color: #007bff;
+
 }
