@@ -7,12 +7,13 @@ function Todo() {
 
 
 
-  const { todos, setTodos, success, setSuccess } = useContext(MyContext);
+  const { todos, setTodos, success, setSuccess, setIdCounter,idCounter } = useContext(MyContext);
 
 
 
   const handleDelete = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
+    
     setTodos(updatedTodos);
   };
 
@@ -32,6 +33,30 @@ function Todo() {
   };
   
 
+  const handleEdit = (id) => {
+     
+    const textId = todos.find((todo)=>todo.id === id)
+
+    const editText = prompt('Görevi Düzenle', textId.text)
+
+    if (editText !==null) {
+      const updateText = todos.map((todo)=>{
+        if (todo.id  === id) {
+          return {
+            ...todo, text: editText
+          }
+          
+        }
+        else{
+          return todo
+        }
+      })
+      setTodos(updateText)
+      
+    }
+    
+  };
+
 
 
   return (
@@ -40,7 +65,7 @@ function Todo() {
       <div >
         <ul  className='todo'>
           {todos.map((todo) => (
-            <ul style={{backgroundColor: todo.success ? '#A6FF96' : '#FFB7B7'}} className='todo-content' key={todo.id}>
+            <ul style={{backgroundColor: todo.success ? '#A6FF96' : 'white'}} className='todo-content' key={todo.id}>
               <div className='todo-text'  >
                 <h4>{todo.id})</h4>
                 <p style={{
@@ -56,19 +81,23 @@ function Todo() {
               
 
              </div>
-              <div className='category'>
-                 ({todo.category})
-              </div>
+             
               <div className='todo-actions'>
+                 <div className='category'>
+                    ({todo.category})
+                 </div>
                 
-                <button>Düzenle</button>
+                <button className='editBtn' onClick={() => handleEdit(todo.id)}>Düzenle</button>
                
-                <button onClick={() => handleDelete(todo.id)}>Sil</button>
-                
+                <button className='deleteBtn' onClick={() => handleDelete(todo.id)}>Sil</button>
+                <div>
+                 <span>{todo.precedence}</span>
+               </div>
               </div>
-         
+               
             
             </ul>
+            
           ))}
         </ul>
       </div>

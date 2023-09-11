@@ -15,7 +15,8 @@ function HomePage() {
   const [value, setValue] = useState('');
   const [selectValue, setSelectValue]=useState('')
   const [success, setSuccess]=useState(false)
-  const [idCounter, setIdCounter] = useState(1); // İlk id değeri 1 olarak başlasın
+  const [idCounter, setIdCounter] = useState(1);
+  const [precedence, setPrecedence] = useState('')
 
 
 
@@ -25,7 +26,8 @@ function HomePage() {
         id: idCounter, 
         text: value,
         category: selectValue,
-        success: success
+        success: success,
+        precedence:precedence 
       };
       
       if (selectValue === '') {
@@ -45,6 +47,11 @@ function HomePage() {
     setSelectValue(selectedValue)
 
    
+  }
+
+  const handlePrecedence = (event) => {
+    const selectedPrecedence = event.target.value
+    setPrecedence(selectedPrecedence)
   }
 
   useEffect(()=>{
@@ -80,12 +87,30 @@ function HomePage() {
               </Select>
              
           </FormControl>
+  
+          <FormControl>
+                  <InputLabel id="demo-simple-select-label">Öncelik Sırası</InputLabel>
+                      <Select
+                        className='selectBox'
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={precedence}
+                        label="Öncelik Sırası"
+                        onChange={handlePrecedence}
+                      >
+                        <MenuItem value='Kısa Vade'>Kısa Vade</MenuItem>
+                        <MenuItem value='Orta Vade'>Orta Vade</MenuItem>
+                        <MenuItem value='Uzun Vade'>Uzun Vade</MenuItem>
+                
+                      </Select>
+          </FormControl>
+         
 
           
         </div>
       </div>
       <div className='mainTodo'>
-        <MyContext.Provider value={{ todos, setTodos,idCounter, selectValue, success, setSuccess }}>
+        <MyContext.Provider value={{ todos, setTodos,idCounter, selectValue, success, setSuccess, idCounter, setIdCounter }}>
           <Todo />
         </MyContext.Provider>
       </div>

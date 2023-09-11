@@ -45,7 +45,7 @@
 
 .checked{
   display: flex;
-  flex-wrap: nowrap;
+ 
 }
 
 
@@ -74,7 +74,7 @@
 }
 
 /* Düzenle düğmesi */
-.todo-actions button:first-child {
+.editBtn {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -85,7 +85,7 @@
 }
 
 /* Sil düğmesi */
-.todo-actions button:last-child {
+.deleteBtn {
   background-color: #dc3545;
   color: #fff;
   border: none;
@@ -133,5 +133,13 @@
 }
 
 .category{
-  color: red;
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+}
+
+span{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 10px;
 }
