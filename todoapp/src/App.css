@@ -101,6 +101,7 @@
   border-radius: 4px;
   width: 400px;
   background: transparent;
+  margin: 10px;
   
 }
 
@@ -119,6 +120,7 @@
   justify-content: center;
   cursor: pointer;
   background-color: transparent;
+  align-items: center;
 }
 
 .title{
@@ -132,6 +134,10 @@
 
 }
 
+.precedenceBox{
+  
+}
+
 .category{
   color: black;
   display: flex;
@@ -139,6 +145,7 @@
 }
 
 span{
+  
   display: flex;
   justify-content: flex-end;
   font-size: 10px;

@@ -63,13 +63,12 @@ function HomePage() {
       <div className='headerTodo'>
         <div>
           <input
+          placeholder='Bir Görev Giriniz...'
             type="text"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button onClick={handleValue}>
-            <PostAddIcon />
-          </button>
+         
           <FormControl>
               <InputLabel id="demo-simple-select-label">Alan Seçimi</InputLabel>
               <Select
@@ -89,7 +88,7 @@ function HomePage() {
           </FormControl>
   
           <FormControl>
-                  <InputLabel id="demo-simple-select-label">Öncelik Sırası</InputLabel>
+                  <InputLabel className='precedenceBox' id="demo-simple-select-label">Öncelik Sırası</InputLabel>
                       <Select
                         className='selectBox'
                         labelId="demo-simple-select-label"
@@ -104,6 +103,9 @@ function HomePage() {
                 
                       </Select>
           </FormControl>
+          <button onClick={handleValue}>
+            <PostAddIcon />
+          </button>
          
 
           
