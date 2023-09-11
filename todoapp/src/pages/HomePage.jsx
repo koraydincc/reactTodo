@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import Todo from '../components/Todo';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { pink } from '@mui/material/colors';
+import Checkbox from '@mui/material/Checkbox';
 
 export const MyContext = createContext();
 
@@ -13,15 +14,25 @@ function HomePage() {
   const [todos, setTodos] = useState([]);
   const [value, setValue] = useState('');
   const [selectValue, setSelectValue]=useState('')
+  const [success, setSuccess]=useState(false)
   const [idCounter, setIdCounter] = useState(1); // İlk id değeri 1 olarak başlasın
+
+
 
   const handleValue = () => {
     if (value.trim() !== '') {
       const newTodo = {
-        id: idCounter, // id değeri idCounter ile atanır
+        id: idCounter, 
         text: value,
-        category: selectValue
+        category: selectValue,
+        success: success
       };
+      
+      if (selectValue === '') {
+        alert('Lütfen alan seçiniz')
+        return false
+        
+      }
 
       setTodos([...todos, newTodo]);
       setValue('');
@@ -65,13 +76,16 @@ function HomePage() {
                 <MenuItem value='Spor'>Spor</MenuItem>
                 <MenuItem value='Kişisel'>Kişisel</MenuItem>
                 <MenuItem value='İş'>İş</MenuItem>
+                <MenuItem value='Ev'>Ev</MenuItem>
               </Select>
+             
           </FormControl>
+
           
         </div>
       </div>
       <div className='mainTodo'>
-        <MyContext.Provider value={{ todos, setTodos,idCounter, selectValue }}>
+        <MyContext.Provider value={{ todos, setTodos,idCounter, selectValue, success, setSuccess }}>
           <Todo />
         </MyContext.Provider>
       </div>

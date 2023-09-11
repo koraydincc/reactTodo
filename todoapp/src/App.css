@@ -28,6 +28,12 @@
  
 }
 
+.todo{
+  display: flex;
+  flex-direction: column;
+  
+}
+
 
 
 
@@ -37,7 +43,10 @@
   margin: 10px 0;
 }
 
-
+.checked{
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 
 /* Todo öğeleri */
@@ -121,4 +130,8 @@
   width: 150px;
   color: #007bff;
 
+}
+
+.category{
+  color: red;
 }
