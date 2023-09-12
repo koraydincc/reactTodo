@@ -24,7 +24,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+
+
  
 }
 
@@ -102,6 +103,8 @@
   width: 400px;
   background: transparent;
   margin: 10px;
+  height: 20px;
+
   
 }
 
@@ -131,6 +134,7 @@
 .selectBox{
   width: 150px;
   color: #007bff;
+  margin: 10px;
 
 }
 

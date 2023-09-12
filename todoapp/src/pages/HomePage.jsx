@@ -18,7 +18,7 @@ function HomePage() {
   const [idCounter, setIdCounter] = useState(1);
   const [precedence, setPrecedence] = useState('')
 
-
+  
 
   const handleValue = () => {
     if (value.trim() !== '') {
@@ -35,12 +35,16 @@ function HomePage() {
         return false
         
       }
-
-      setTodos([...todos, newTodo]);
-      setValue('');
-      setIdCounter(idCounter + 1); // idCounter'ı bir artırarak bir sonraki id'yi hazırla
+     
+    
+       setIdCounter(idCounter + 1);
+       setTodos([...todos, newTodo]);
+       setValue('');
+       
+      
     }
   };
+  console.log(todos);
 
   const handleChange = (event) => {
     const selectedValue = event.target.value

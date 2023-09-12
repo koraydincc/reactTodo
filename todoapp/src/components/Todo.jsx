@@ -13,7 +13,7 @@ function Todo() {
 
   const handleDelete = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
-    
+   
     setTodos(updatedTodos);
   };
 
@@ -35,9 +35,11 @@ function Todo() {
 
   const handleEdit = (id) => {
      
-    const textId = todos.find((todo)=>todo.id === id)
+    const todo = todos.find((todo)=>todo.id === id)
 
-    const editText = prompt('Görevi Düzenle', textId.text)
+    console.log(todo)
+
+    const editText = prompt('Görevi Düzenle', todo.text)
 
     if (editText !==null) {
       const updateText = todos.map((todo)=>{
