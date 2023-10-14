@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-
+  
 }
 
 
@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh; 
+  
   
 }
 
@@ -24,6 +25,8 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   align-items: center;
   justify-content: center;
+  
+  
 
 
  
@@ -32,7 +35,16 @@
 .todo{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
   
+}
+
+.inputBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -49,6 +61,13 @@
  
 }
 
+.mainTodo{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
 
 /* Todo öğeleri */
 .todo-content {
@@ -57,19 +76,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   justify-content: space-between; /* İçerik ve düğmeleri yatayda aralayın */
   align-items: center; /* İçerik ve düğmeleri dikeyde hizalayın */
-  width: 100%;
   margin-bottom: 10px; /* Öğeler arası boşluk */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #fff;
   width: 500px;
+  height: 100px;
+  
 }
 
 /* Todo öğe içeriği */
 .todo-text {
   flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+
   
 
 }
@@ -138,9 +161,7 @@
 
 }
 
-.precedenceBox{
-  
-}
+
 
 .category{
   color: black;

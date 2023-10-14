@@ -7,7 +7,7 @@ function Todo() {
 
 
 
-  const { todos, setTodos, success, setSuccess, setIdCounter,idCounter } = useContext(MyContext);
+  const {title, todos, setTodos, success, setSuccess, setIdCounter,idCounter } = useContext(MyContext);
 
 
 
@@ -64,12 +64,16 @@ function Todo() {
   return (
     <>
       <h2 className='title'>Todo List</h2>
-      <div >
+      <div className='todo-container' >
         <ul  className='todo'>
           {todos.map((todo) => (
+             
             <ul style={{backgroundColor: todo.success ? '#A6FF96' : 'white'}} className='todo-content' key={todo.id}>
+               
               <div className='todo-text'  >
+              
                 <h4>{todo.id})</h4>
+                
                 <p style={{
                   textDecoration: todo.success ? 'line-through' : 'none'
                 }}>{todo.text}</p>

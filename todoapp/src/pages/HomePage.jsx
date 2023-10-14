@@ -12,6 +12,7 @@ export const MyContext = createContext();
 
 function HomePage() {
   const [todos, setTodos] = useState([]);
+  const [title, setTitle] = useState('')
   const [value, setValue] = useState('');
   const [selectValue, setSelectValue]=useState('')
   const [success, setSuccess]=useState(false)
@@ -24,6 +25,7 @@ function HomePage() {
     if (value.trim() !== '') {
       const newTodo = {
         id: idCounter, 
+        title: title,
         text: value,
         category: selectValue,
         success: success,
@@ -39,6 +41,7 @@ function HomePage() {
     
        setIdCounter(idCounter + 1);
        setTodos([...todos, newTodo]);
+       setTitle('')
        setValue('');
        
       
@@ -53,6 +56,8 @@ function HomePage() {
    
   }
 
+ 
+
   const handlePrecedence = (event) => {
     const selectedPrecedence = event.target.value
     setPrecedence(selectedPrecedence)
@@ -65,7 +70,11 @@ function HomePage() {
   return (
     <div className='headerDiv'>
       <div className='headerTodo'>
-        <div>
+        <div className='inputBox'>
+          <input type="text"
+          placeholder='Görev Başlığı Giriniz'
+          value={title} 
+          onChange={(e)=> setTitle(e.target.value)}/>
           <input
           placeholder='Bir Görev Giriniz...'
             type="text"
@@ -73,7 +82,7 @@ function HomePage() {
             onChange={(e) => setValue(e.target.value)}
           />
          
-          <FormControl>
+         
               <InputLabel id="demo-simple-select-label">Alan Seçimi</InputLabel>
               <Select
                 className='selectBox'
@@ -89,9 +98,9 @@ function HomePage() {
                 <MenuItem value='Ev'>Ev</MenuItem>
               </Select>
              
-          </FormControl>
+        
   
-          <FormControl>
+    
                   <InputLabel className='precedenceBox' id="demo-simple-select-label">Öncelik Sırası</InputLabel>
                       <Select
                         className='selectBox'
@@ -106,7 +115,7 @@ function HomePage() {
                         <MenuItem value='Uzun Vade'>Uzun Vade</MenuItem>
                 
                       </Select>
-          </FormControl>
+       
           <button onClick={handleValue}>
             <PostAddIcon />
           </button>
@@ -116,7 +125,7 @@ function HomePage() {
         </div>
       </div>
       <div className='mainTodo'>
-        <MyContext.Provider value={{ todos, setTodos,idCounter, selectValue, success, setSuccess, idCounter, setIdCounter }}>
+        <MyContext.Provider value={{ title,todos, setTodos,idCounter, selectValue, success, setSuccess, idCounter, setIdCounter }}>
           <Todo />
         </MyContext.Provider>
       </div>
